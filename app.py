@@ -202,21 +202,138 @@ elif page == "Bảo tồn":
             st.write(body)
     st.caption("Nguồn được ghi trong ứng dụng gốc: tài liệu ‘Thách thức, kỳ vọng – Vườn quốc gia Côn Đảo’.")
 
-else:
-    st.markdown("## 🌊 GIỚI THIỆU CÔN ĐẢO")
-    st.write("Côn Đảo có hệ sinh thái biển đa dạng, bao gồm rạn san hô, thảm cỏ biển và nhiều loài sinh vật có giá trị sinh thái. Bảo tồn cần kết hợp theo dõi khoa học, phục hồi sinh cảnh, giảm ô nhiễm và nâng cao nhận thức cộng đồng.")
-    st.markdown("### 🌿 Vì sao cần bảo tồn?")
-    st.write("- Duy trì đa dạng sinh học và cân bằng hệ sinh thái biển.\n- Bảo vệ các loài quý hiếm như Rùa biển và Bò biển.\n- Hạn chế tác động của ô nhiễm, biến đổi khí hậu và hoạt động của con người.\n- Khuyến khích người dân và du khách tham gia các hành vi du lịch có trách nhiệm.")
-    st.markdown("### 🖼️ Hình ảnh Côn Đảo")
-    image_files = [ASSETS_DIR / "biển 1.jpg", ASSETS_DIR / "biển 2.jpg", ASSETS_DIR / "biển 3.jpg", ASSETS_DIR / "biển 4.jpg"]
-    existing = [p for p in image_files if p.exists()]
-    if existing:
-        cols = st.columns(min(2, len(existing)))
-        for i, path in enumerate(existing):
-            with cols[i % len(cols)]:
-                st.image(str(path), caption=path.name, use_container_width=True)
-    else:
-        st.caption("Chưa thấy thư mục assests/biển 1.jpg … biển 4.jpg. Hãy tải thư mục ảnh gốc lên cùng app.py để hiển thị hình ảnh.")
+elif page == "Giới thiệu":
+    st.title("GIỚI THIỆU VỀ CÔN ĐẢO")
 
-st.divider()
-st.caption("CÔN ĐẢO CONSERVATION • YOLO + GEMINI AI • Phiên bản web chuyển đổi từ ứng dụng Python gốc")
+    st.markdown("""
+    Côn Đảo là vùng đất có giá trị đặc biệt về lịch sử, văn hóa và đa dạng sinh học.
+    Không chỉ nổi tiếng với những dấu ấn lịch sử hào hùng, nơi đây còn sở hữu
+    hệ sinh thái rừng và biển phong phú, có ý nghĩa quan trọng đối với công tác
+    bảo tồn thiên nhiên tại Việt Nam.
+    """)
+
+    # 1. VỊ TRÍ VÀ TỰ NHIÊN
+    st.header("1. Vị trí và điều kiện tự nhiên")
+
+    st.subheader("Vị trí địa lý")
+    st.markdown("""
+    Côn Đảo nằm ngoài khơi vùng biển phía Nam Việt Nam, cách:
+    - Vũng Tàu khoảng 185 km.
+    - Thành phố Hồ Chí Minh khoảng 230 km.
+    - Cần Thơ khoảng 83 km.
+
+    Côn Đảo có vị trí địa lý đặc biệt, góp phần hình thành nên những
+    giá trị tự nhiên và hệ sinh thái đặc trưng của vùng biển phía Nam.
+    """)
+
+    st.subheader("Địa hình và khí hậu")
+    st.markdown("""
+    Khoảng 2/3 diện tích Côn Đảo là rừng núi, với đỉnh cao nhất là
+    Núi Thánh Giá, cao khoảng 577 m.
+
+    Khí hậu mang tính chất nhiệt đới gió mùa – hải dương, được chia
+    thành hai mùa rõ rệt:
+    - **Mùa mưa**
+    - **Mùa khô**
+
+    Nhiệt độ trung bình năm khoảng 26°C.
+    """)
+
+    st.subheader("Hệ sinh thái")
+    st.markdown("""
+    Côn Đảo sở hữu hệ sinh thái tự nhiên đa dạng, bao gồm hệ sinh thái
+    rừng nhiệt đới, rừng ngập mặn, thảm cỏ biển và các rạn san hô.
+
+    **Vườn quốc gia Côn Đảo** là khu vực có vai trò quan trọng trong
+    việc bảo tồn đa dạng sinh học. Nơi đây nổi tiếng là địa điểm sinh sản
+    của nhiều loài rùa biển và là nơi sinh sống của nhiều loài động,
+    thực vật quý hiếm.
+
+    Vườn quốc gia Côn Đảo được công nhận là Khu Ramsar và Vườn Di sản ASEAN,
+    khẳng định giá trị sinh thái và tầm quan trọng quốc tế của khu vực này.
+    """)
+
+    st.markdown(
+        "[Tìm hiểu thêm về Vườn quốc gia Côn Đảo](https://www.condaopark.com.vn/vn/tong-quan-vuon-quoc-gia-con-dao.html)"
+    )
+
+    st.divider()
+
+    # 2. LỊCH SỬ
+    st.header("2. Lịch sử Côn Đảo")
+
+    st.markdown("""
+    Côn Đảo từng được biết đến với tên gọi **“địa ngục trần gian”**,
+    gắn liền với hệ thống Nhà tù Côn Đảo được thành lập từ năm 1862.
+    Trong hơn một thế kỷ, nơi đây từng là nơi giam giữ nhiều chiến sĩ
+    cách mạng và những người yêu nước Việt Nam.
+
+    Những dấu tích lịch sử tại Côn Đảo là minh chứng cho tinh thần
+    kiên cường, bất khuất và sự hy sinh của các thế hệ đi trước.
+
+    Ngày nay, Côn Đảo trở thành địa chỉ đỏ trong các hoạt động giáo dục
+    truyền thống, tham quan lịch sử và du lịch tâm linh. Trong đó,
+    nghĩa trang Hàng Dương và phần mộ Anh hùng liệt sĩ Võ Thị Sáu
+    là những địa điểm được nhiều người đến viếng thăm.
+    """)
+
+    st.divider()
+
+    # 3. DU LỊCH VÀ ẨM THỰC
+    st.header("3. Du lịch và ẩm thực")
+
+    st.subheader("Vẻ đẹp tự nhiên")
+    st.markdown("""
+    Côn Đảo nổi bật với cảnh quan thiên nhiên hoang sơ, làn nước biển
+    trong xanh, những bãi cát trắng và các rạn san hô có giá trị sinh thái.
+
+    Nơi đây từng được nhiều tạp chí du lịch quốc tế bình chọn trong
+    các danh sách điểm đến đảo hấp dẫn. Theo thông tin du lịch bạn
+    cung cấp, thời điểm đẹp để du lịch biển thường là từ **tháng 3 đến tháng 9**.
+    """)
+
+    st.subheader("Ẩm thực đặc trưng")
+    st.markdown("""
+    Ẩm thực Côn Đảo mang nét đặc trưng của vùng biển đảo với nhiều
+    món ăn và đặc sản địa phương, tiêu biểu như:
+
+    - **Ốc vú nàng:** đặc sản hải sản nổi tiếng của Côn Đảo.
+    - **Tôm mũ ni:** loại hải sản được nhiều du khách yêu thích.
+    - **Mực một nắng:** món ăn đặc trưng của vùng biển.
+    - **Mứt hạt bàng:** đặc sản được chế biến từ hạt bàng Côn Đảo.
+    - **Rượu sâm đất:** một sản phẩm đặc trưng được giới thiệu tại địa phương.
+    """)
+
+    st.divider()
+
+    # 4. GIÁ TRỊ CỦA CÔN ĐẢO ĐỐI VỚI CÔNG TÁC BẢO TỒN
+    st.header("4. Giá trị của Côn Đảo đối với công tác bảo tồn")
+
+    st.markdown("""
+    Với sự phong phú về hệ sinh thái và sự hiện diện của nhiều loài
+    sinh vật quý hiếm, Côn Đảo là địa điểm có ý nghĩa quan trọng
+    trong nghiên cứu khoa học và bảo tồn đa dạng sinh học.
+
+    Việc ứng dụng trí tuệ nhân tạo vào nhận diện và giám sát sinh vật
+    có thể góp phần hỗ trợ thu thập thông tin, nhận biết các loài,
+    nâng cao hiệu quả theo dõi đa dạng sinh học và cung cấp thêm
+    dữ liệu phục vụ công tác bảo tồn tại địa phương.
+    """)
+
+    st.info(
+        "Côn Đảo không chỉ là vùng đất giàu giá trị lịch sử, "
+        "văn hóa mà còn là một khu vực có ý nghĩa đặc biệt đối với "
+        "công tác bảo tồn thiên nhiên và đa dạng sinh học."
+    )
+
+    # NGUỒN THAM KHẢO
+    with st.expander("Nguồn tài liệu tham khảo"):
+        st.markdown("""
+        1. [MIA.vn – Du lịch Côn Đảo](https://mia.vn/cam-nang-du-lich/du-lich-con-dao-13220)
+        2. [Cổng thông tin Côn Đảo – Thông tin tổng quan](https://condao.com.vn/vi/news/Tin-tuc/thong-tin-tong-quan-huyen-con-dao-1676.html)
+        3. [Vườn quốc gia Côn Đảo](https://www.condaopark.com.vn/vn/tong-quan-vuon-quoc-gia-con-dao.html)
+        4. [VnExpress – Cẩm nang du lịch Côn Đảo](https://vnexpress.net/cam-nang-du-lich-con-dao-4445727.html)
+        5. [Côn Đảo Explorer](https://condaoexplorer.com/con-dao)
+        6. [Umove Adventure – Tất tần tật về Côn Đảo](https://www.umoveadventure.com/vi/tat-tan-tat-ve-con-dao.html)
+        7. [Wikipedia tiếng Việt – Côn Đảo](https://vi.wikipedia.org/wiki/C%C3%B4n_%C4%90%E1%BA%A3o)
+        """)
